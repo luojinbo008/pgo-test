@@ -3,8 +3,7 @@ package main
 import (
 	"github.com/penguinn/pgo"
 	"log"
-
-	"github.com/penguinn/pgo-test/web/handler"
+	"github.com/penguinn/pgo-test/http/handler"
 )
 
 func main()  {

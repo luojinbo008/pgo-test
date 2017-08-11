@@ -1,5 +1,5 @@
 # pgo #
-* go的基础开发框架，在这里集成了日志，配置文件，数据库等东西，目前仅支持web，thrift，jsonrpc2的开发 
+* go的基础开发框架，在这里集成了日志，配置文件，数据库等东西，目前仅支持http，thrift，jsonrpc2和rpcx的开发 
 
 ## 开发流程 ##
 1. go版本
@@ -43,9 +43,44 @@
 * mongo: https://godoc.org/gopkg.in/mgo.v2
 * redis: https://godoc.org/github.com/go-redis/redis
 
+## 配置文件详解 ##
+[实例模板][实例模板]  中的components配置内容是通过关键字自动生成相应组件(选择使用)，另可新增配置，新增配置同样可在自己的项目中通过viper获得
+
+[实例模板]: https://github.com/penguinn/pgo/tree/master/doc/example.toml  
+
+### server  
+1. type: 选择http、thrift、jsonrpc2和rpcx中的一种
+2. addr: 服务启动port
+3. log: 选择seelog的配置文件，若这个字段不填，则使用默认配置
+### components.router
+1. type: 可选http和jsonrpc2，分别部署不同形式的handler
+2. default：为一个数组，里面包括不同的路径路由到不同的handler上
+### components.mysql
+mysql配置，如果不是用mysql可以删除掉mysql的配置
+1. type: 必填container，用于生成mysql子容器
+2. default：在mysql的container中生成default数据库
+* type: 表示数据库的种类
+* Driver： 表示底层使用的驱动器
+* DSN: 表示写库的位置
+* Reads: 表示读库的位置
+3. local：在container中生成local数据库
+### components.mongo
+mongo配置，如果不适用mongo数据库可以删除掉mongo的配置
+1. type: 必填container，用于生成mongo子容器
+2. default: 在mongo的container中生成default数据库
+* type：表示数据库的种类
+* Addresses：mongo地址，可以传入数组
+### components.redis
+1. type: 必填container，用于生成redis子容器
+2. default: 在redis的container中生成default数据库
+* Password：如果redis没有密码，请传入空字符串
+### components.template
+导入web模板
+
+
 ## 开发实例 ##
-1. web开发  
-* 位置：https://github.com/penguinn/pgo-test/tree/master/web
+1. http开发  
+* 位置：https://github.com/penguinn/pgo-test/tree/master/http
 * 注意：初始化的时候需要传入handler实例的地址
 
 2. thrift开发 

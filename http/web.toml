@@ -1,0 +1,42 @@
+[server]
+#"http","thrift","jsonrpc2","rpcx"
+type = "http"
+addr = ":8080"
+log = "web_seelog.xml"
+
+[components.router]
+type = "http"
+[[components.router.default]]
+Path = "/"
+Handler = "DefaultHandler"
+
+[[components.router.default]]
+Path = "/test"
+Handler = "TestHandler"
+
+[components.mysql]
+type = "container"
+[components.mysql.default]
+type = "mysql"
+Driver = "mysql"
+Dsn = "meddev:akdjfkaj2399I@tcp(114.55.3.97:3307)/med_push?charset=utf8&parseTime=True&loc=Local"
+
+[components.mongo]
+type = "container"
+[components.mongo.default]
+type = "mongo"
+Addresses = ["120.26.166.35:27017"]
+UserName = "med"
+Password = "med=0=mongo"
+Database = "test"
+
+[components.redis]
+type = "container"
+[components.redis.default]
+type = "redis"
+Address = "127.0.0.1:6379"
+Password = ""
+
+[components.template]
+type = "template"
+Path = "./views/*.tpl"

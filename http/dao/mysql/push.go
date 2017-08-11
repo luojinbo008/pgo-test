@@ -1,14 +1,12 @@
-package model
+package mysql
 
 import (
-	"github.com/penguinn/pgo/app"
 	"github.com/jinzhu/gorm"
 )
 
-var(
-	UserDeviceModel = new(UserDevice)
-)
-
+type DBNameDao struct {
+	DB *gorm.DB
+}
 
 type UserDevice struct {
 	ID 				uint 	`gorm:"column:id;primary_key;not null;unsigned data type;AUTO_INCREMENT"`
@@ -24,16 +22,7 @@ type UserDevice struct {
 	Version        	int64 	`gorm:"column:version;not null"`
 }
 
-func(p *UserDevice) SelectDevicenuByUseridSource(userID int, source int) (userDevice UserDevice, err error){
-	db := app.UseModel("mysql", p, false)
-	db.(*gorm.DB).Table(p.TableName()).Where("userId = ?", userID).Where("source = ?", source).Find(&userDevice)
+func(p *DBNameDao) SelectDevicenuByUseridSource(userID int, source int) (userDevice UserDevice, err error){
+	p.DB.Table("userDevice").Where("userId = ?", userID).Where("source = ?", source).Find(&userDevice)
 	return
-}
-
-func (p *UserDevice) TableName() string {
-	return "userDevice"
-}
-
-func (p *UserDevice) ConnName() string {
-	return "default"
 }

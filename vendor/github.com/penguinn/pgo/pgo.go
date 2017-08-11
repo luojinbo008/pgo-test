@@ -13,6 +13,7 @@ import (
 	"github.com/penguinn/pgo/log"
 	"github.com/penguinn/pgo/thrift"
 	"github.com/penguinn/pgo/database/mongo"
+	"github.com/penguinn/pgo/prpcx"
 )
 
 func Init(configFile string, args ...interface{}) error {
@@ -35,7 +36,7 @@ func Init(configFile string, args ...interface{}) error {
 	runMode := viper.GetString("server.type")
 	if len(runMode) != 0{
 		switch runMode {
-		case "web":
+		case "http":
 			if len(args) == 1{
 				router.InitHttp(args[0])
 			}else{
@@ -51,6 +52,12 @@ func Init(configFile string, args ...interface{}) error {
 			if len(args) == 1 {
 				router.InitRpc(args[0])
 			} else{
+				return errors.New("args error")
+			}
+		case "rpcx":
+			if len(args) == 2{
+				prpcx.InitRpcx(args[0].(string), args[1])
+			} else {
 				return errors.New("args error")
 			}
 		default:
@@ -71,7 +78,7 @@ func Init(configFile string, args ...interface{}) error {
 	if len(viper.GetStringMap("components.router")) != 0 && viper.GetString("components.router.type") == "http"{
 		app.Register("http", router.CreatorHttp)
 	}
-	if len(viper.GetStringMap("components.router")) != 0 && viper.GetString("components.router.type") == "rpc"{
+	if len(viper.GetStringMap("components.router")) != 0 && viper.GetString("components.router.type") == "jsonrpc2"{
 		app.Register("rpc", router.CreatorRpc)
 	}
 	if len(viper.GetStringMap("components.template")) != 0 {
@@ -85,7 +92,7 @@ func Run() error {
 	runMode := viper.GetString("server.type")
 	if len(runMode) != 0{
 		switch runMode {
-		case "web":
+		case "http":
 			err := http.ListenAndServe(viper.GetString("server.addr"), nil)
 			if err != nil{
 				log.Fatal("ListenAndServer: ", err)
@@ -99,6 +106,11 @@ func Run() error {
 			err := http.ListenAndServe(viper.GetString("server.addr"), nil)
 			if err != nil{
 				log.Fatal("ListenAndServer: ", err)
+			}
+		case "rpcx":
+			err := prpcx.Run(viper.GetString("server.addr"))
+			if err != nil{
+				log.Fatal("RunRpcxServer: ", err)
 			}
 		default:
 			return errors.New("run error with type："+runMode)

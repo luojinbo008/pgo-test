@@ -3,10 +3,11 @@ package handler
 import (
 	"net/http"
 	log"github.com/cihub/seelog"
-	"github.com/penguinn/pgo-test/web/model"
 	"fmt"
 	"encoding/json"
 	"github.com/penguinn/pgo/app"
+	"github.com/penguinn/pgo-test/http/model/mysql"
+	"github.com/penguinn/pgo-test/http/model/mongo"
 )
 
 type TestStruct struct {
@@ -17,7 +18,8 @@ type TestStruct struct {
 type Controller int
 
 func (p *Controller)DefaultHandler(w http.ResponseWriter, req *http.Request) {
-	data, err := model.UserDeviceModel.SelectDevicenuByUseridSource(57076573, 1)
+	mDB := mysql.NewDBNameDao()
+	data, err := mDB.SelectDevicenuByUseridSource(57082592, 1)
 	if err != nil{
 		log.Error(err)
 	}
@@ -27,7 +29,8 @@ func (p *Controller)DefaultHandler(w http.ResponseWriter, req *http.Request) {
 
 
 func (p *Controller)TestHandler(w http.ResponseWriter, req *http.Request) {
-	heheStruct, err := model.HeHeModel.GetOneById(1.0)
+	mongoDB := mongo.NewDBNameDao()
+	heheStruct, err := mongoDB.GetOneById(1.0)
 	if err != nil{
 		log.Error(err)
 	}

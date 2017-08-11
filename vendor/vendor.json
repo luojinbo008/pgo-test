@@ -234,70 +234,82 @@
 			"revisionTime": "2017-07-07T11:06:42Z"
 		},
 		{
-			"checksumSHA1": "T78ndC3BKXqmitamdYx8sgKzvi8=",
+			"checksumSHA1": "u4h73jAU3dTXWfKnBIaudx8x0yo=",
 			"path": "github.com/penguinn/pgo",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
-			"checksumSHA1": "tL4A+7vJjnqXBnvIfybHtblixH4=",
+			"checksumSHA1": "4gBucpfjDVBOABjpAmf17r+TJ+o=",
 			"path": "github.com/penguinn/pgo/app",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "dorXmbjoQYUEVRSSXeGul47xjXc=",
 			"path": "github.com/penguinn/pgo/container",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "wCpB5G3o4v4UkN0wLc0szH4vN6E=",
 			"path": "github.com/penguinn/pgo/database/mongo",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "Rt8N6o4Bhf1bPB5PVPgFInkqO+s=",
 			"path": "github.com/penguinn/pgo/database/mysql",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
-			"checksumSHA1": "PTHZ3Xt6Kq/RDu1waut2Z7hkn4Q=",
+			"checksumSHA1": "JP03Of0yLDCe7nL23/ZWBlqVvqM=",
 			"path": "github.com/penguinn/pgo/database/redis",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "M9F1sFnWi+1ki+kQEc+TkjPYlKo=",
 			"path": "github.com/penguinn/pgo/jsonrpc2",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
-			"checksumSHA1": "DVW0ubS/szOgg9sk/RhPsGzNw5Y=",
+			"checksumSHA1": "y1oufdarsMYIZ9VtoShrQtblyyQ=",
 			"path": "github.com/penguinn/pgo/log",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
+		},
+		{
+			"checksumSHA1": "E24tqyHM/y0Vfz18pSTDs6ESSUY=",
+			"path": "github.com/penguinn/pgo/prpcx",
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "bY0AXT37JqJi+LB0SXTiMX+oKzg=",
 			"path": "github.com/penguinn/pgo/router",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "99OZf/OaWmtDoeashR+1DKJZ4nc=",
 			"path": "github.com/penguinn/pgo/template",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "RGnKyqQV4bNEdIxqO8ftiMEgcL0=",
 			"path": "github.com/penguinn/pgo/thrift",
-			"revision": "77b425b943345ff946b2941a354d00536c45f71e",
-			"revisionTime": "2017-07-07T11:06:42Z"
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
+		},
+		{
+			"checksumSHA1": "stAEuEKoql74qUiqxBSiup2QxMI=",
+			"path": "github.com/penguinn/pgo/utils",
+			"revision": "50b1f20ac4ab1044b301f01e3619a324a48c34d9",
+			"revisionTime": "2017-08-11T08:53:25Z"
 		},
 		{
 			"checksumSHA1": "zKKp5SZ3d3ycKe4EKMNT0BqAWBw=",

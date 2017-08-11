@@ -2,12 +2,12 @@ package app
 
 import (
 	"html/template"
-	"github.com/go-redis/redis"
 	"github.com/penguinn/pgo/container"
 	"github.com/penguinn/pgo/database/mysql"
 	"gopkg.in/mgo.v2"
-	"fmt"
 	"github.com/penguinn/pgo/database/mongo"
+	rd "github.com/penguinn/pgo/database/redis"
+	"github.com/go-redis/redis"
 )
 
 func Register(name string, creator container.Creator) {
@@ -81,15 +81,16 @@ type Model interface {
 	ConnName() string
 }
 
-func UseModel(name string, m Model, write bool) interface{} {
-	d, err := Get(name, m.ConnName())
+func UseModel(name string, subName string, write bool) interface{} {
+	d, err := Get(name, subName)
 	if err == nil {
 		switch name {
 		case "mysql":
-			fmt.Println(1)
 			return d.(*mysql.DB).Get(write)
 		case "mongo":
 			return d.(*mongo.MongoDB).Get(write)
+		case "redis":
+			return d.(*rd.RedisDB).Get(write)
 		}
 	}
 	return nil
